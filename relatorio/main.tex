@@ -1,7 +1,7 @@
 \documentclass[11pt,letter]{article}
 
 \usepackage[portuguese]{babel}
-\usepackage{biblatex}
+\usepackage[numbers]{natbib}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage[T1]{fontenc}
@@ -22,8 +22,8 @@
 
 \usepackage{hyperref}
 
-\graphicspath{ {fig/} }
-\addbibresource{ref.bib}
+\graphicspath{ {fig/} {fig/first_nn/} }
+
 
 \newenvironment{myenumerate}{
 	\begin{enumerate}
@@ -104,7 +104,8 @@
 		\input{ex01_first_neuralnet}
 		\input{ex02_convnet}
 		
-		\printbibliography 
+		\bibliographystyle{IEEEtran}
+		\bibliography{main}
 	\end{spacing}
 	
 	\vfill
