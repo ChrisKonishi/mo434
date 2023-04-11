@@ -24,3 +24,14 @@ O exercício proposto envolve a modificação do modelo e dos processos de trein
 \subsection{Solução do Exercício Proposto}
 
 Diferentes abordagens para reduzir o fenômeno de \textit{underfitting} podem ser aplicadas, entre elas o aumento da taxa de aprendizado ou o aumento de épocas, aumentar a complexidade da rede neural, aumentando a quantidade de camadas escondidas, por exemplo, entre outras possibilidades. Outra possibilidade seria a redução da probabilidade associada à operação de \textit{dropout}, que poderia estar exagerada, prejudicando a rede -- apesar de que o valor de 0,25 não é considerado elevado, então é improvável que isso seja um problema.
+
+A primeira alteração feita foi adicionar uma camada escondida extra, entre a segunda e terceira, com entrada de 200 \textit{features} e saída de 100, fazendo-se as alterações necessárias na primeira camada densamente conectada para encaixá-la. A acurácia final não sofreu alteração significativa, nesse sentido, a mudança poderia ter sido descartada, mas para fins de estudo, ela foi mantida.
+
+A segunda mudança foi aumentar a taxa de aprendizado, visto que observando a Figura~\ref{fig:note1:init_train}, a rede ainda parecia estar convergindo ao fim do treinamento. Aumentar a taxa para $10^{-4}$ demonstrou-se exagerado, visto que houve um \textit{overfitting} do modelo, caracterizado pelo função de custo de treinamento, que continuou a reduzir, mesmo com a estabilidade do custo de validação (Figura~\ref{fig:note1:overfit}). É possível que com mais épocas, o custo de validação chegasse até mesmo a aumentar.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.6\linewidth]{first_nn/overfit}
+	\caption{Gráfico do custo de treinamento e de validação ao longo das épocas de treinamento para uma taxa de aprendizado de $10^{-4}$.}
+	\label{fig:note1:overfit}
+\end{figure}
