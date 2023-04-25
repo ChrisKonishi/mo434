@@ -27,11 +27,16 @@ Diferentes abordagens para reduzir o fenômeno de \textit{underfitting} podem se
 
 A primeira alteração feita foi adicionar uma camada escondida extra, entre a segunda e terceira, com entrada de 200 \textit{features} e saída de 100, fazendo-se as alterações necessárias na primeira camada densamente conectada para encaixá-la. A acurácia final não sofreu alteração significativa, nesse sentido, a mudança poderia ter sido descartada, mas para fins de estudo, ela foi mantida.
 
-A segunda mudança foi aumentar a taxa de aprendizado, visto que observando a Figura~\ref{fig:note1:init_train}, a rede ainda parecia estar convergindo ao fim do treinamento. Aumentar a taxa para $10^{-4}$ demonstrou-se exagerado, visto que houve um \textit{overfitting} do modelo, caracterizado pelo função de custo de treinamento, que continuou a reduzir, mesmo com a estabilidade do custo de validação (Figura~\ref{fig:note1:overfit}). É possível que com mais épocas, o custo de validação chegasse até mesmo a aumentar.
+A segunda mudança foi aumentar a taxa de aprendizado, visto que observando a Figura~\ref{fig:note1:init_train}, a rede ainda parecia estar convergindo ao fim do treinamento. Aumentar a taxa para $10^{-4}$ demonstrou-se exagerado, visto que houve um \textit{overfitting} do modelo, caracterizado pelo função de custo de treinamento, que continuou a reduzir, mesmo com a estabilidade do custo de validação (Figura~\ref{fig:note1:train}-a). É possível que com mais épocas, o custo de validação chegasse até mesmo a aumentar.
+
+Voltando a taxa de aprendizado para $10^{-5}$ e aumentando-a em passos de $1.10^{-5}$, em $4.10^{-5}$ o gráfico começa a apresentar um comportamento de \textit{overfitting}, portanto $3.10^{-5}$ foi a taxa de aprendizado final utilizada (Figura~\ref{fig:note1:train}-b).
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.6\linewidth]{first_nn/overfit}
-	\caption{Gráfico do custo de treinamento e de validação ao longo das épocas de treinamento para uma taxa de aprendizado de $10^{-4}$.}
-	\label{fig:note1:overfit}
+	\subfloat[$lr=4.10^{-5}$]{\includegraphics[width=0.45\linewidth]{first_nn/overfit}}
+	\subfloat[$lr=3.10^{-5}$]{\includegraphics[width=0.45\linewidth]{first_nn/final}}
+	\caption{Gráfico do custo de treinamento e de validação ao longo das épocas de treinamento para uma taxa de aprendizado de $4.10^{-5}$ e $3.10^{-5}$.}
+	\label{fig:note1:train}
 \end{figure}
+
+Para a taxa de aprendizado final, a acurácia obtida na taxa de treinamento foi de 87,83\%. De fato, o ganho de acurácia em relação ao treinamento inicial foi pequeno, mas a configuração de execução de algoritmo encontrada eliminou o \textit{underfitting} sem causar \textit{overfitting}.
