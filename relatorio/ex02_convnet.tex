@@ -25,7 +25,9 @@ Em seguida, a probabilidade da operação de \textit{dropout} foi aumentada, de 
 
 Por fim, a última modificação testada foi adicionar algumas operações de \textit{data augmentation} no conjunto de treinamento. Para isso, foi feito uma classe de \textit{dataset} personalizada, que funciona como \textit{wrapper} da original, mas podendo aplicar \textit{data augmentation} apenas no conjunto de treinamento.
 
-Foram adicionadas duas operações: (i) com uma chance de 50\%, pode ocorrer uma flip horizontal da imagem; (ii) é aplicado um filtro gaussiano com tamanho de kernel 3 e sigma aleatório entre 0,1 e 2. Com essa abordagem, os efeitos do sobreajuste foram bastante minimizados (Figura~\ref{fig:intro_conv:train}-c), mas a eficácia obtida foide 0,92\%.
+Foram adicionadas duas operações: (i) com uma chance de 50\%, pode ocorrer uma flip horizontal da imagem; (ii) é aplicado um filtro gaussiano com tamanho de kernel 3 e sigma aleatório entre 0,1 e 2. Com essa abordagem, os efeitos do sobreajuste foram bastante minimizados (Figura~\ref{fig:intro_conv:train}-c), mas a eficácia obtida permaneceu perto em 93\%, sugerindo um possível limite para esse modelo.
+
+Remover da arquitetura a \textit{skip connection} não teve efeito e remover uma das camadas convolucionais piorou levemente o resultado. Talvez a melhor coisa a ser feita seja trocar por completo a rede neural utilizada.
 
 
 
