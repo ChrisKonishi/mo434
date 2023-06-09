@@ -1,4 +1,4 @@
-\documentclass[11pt,letter]{article}
+\documentclass[11pt,letter]{report}
 
 \usepackage[portuguese]{babel}
 \usepackage[numbers]{natbib}
@@ -95,6 +95,9 @@
 		\pagenumbering{arabic}
 		\setcounter{page}{1}
 		\noindent \textbf{Identificação}: Christian Massao Konishi -- RA 214570\\
+		
+		\vspace{1cm}
+		
 		\input{abstract}
 		\vspace*{\fill}
 		
@@ -102,8 +105,13 @@
 		
 		\newpage
 		
+		\chapter{Exercícios de Aula}
 		\input{ex01_first_neuralnet}
 		\input{ex02_convnet}
+		
+		\chapter{Projeto Final}
+		\input{proj_intro}
+		\input{proj_processamente_dataset}
 		
 		\bibliographystyle{IEEEtran}
 		\bibliography{main}
